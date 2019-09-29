@@ -117,7 +117,6 @@ export default class CodeLensManager {
     let { uri, version, bufnr } = doc
     let document = workspace.getDocument(uri)
     if (!this.validDocument(document)) return
-    if (this.fetching.has(bufnr)) return
     this.fetching.add(bufnr)
     try {
       let codeLenes = await languages.getCodeLens(document.textDocument)
